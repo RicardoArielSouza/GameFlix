@@ -7,9 +7,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role.Companion.Image
 import androidx.compose.ui.text.Placeholder
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -19,7 +21,9 @@ import androidx.compose.ui.unit.sp
 import br.com.racstech.gameflix.R
 import br.com.racstech.gameflix.ui.theme.mediumSpacer
 import br.com.racstech.gameflix.ui.theme.titlesFamily
+import coil.ImageLoader
 import coil.compose.AsyncImage
+import coil.compose.rememberAsyncImagePainter
 
 @Composable
 fun Highlight() {
@@ -31,19 +35,11 @@ fun Highlight() {
         verticalArrangement = Arrangement.Center
     ) {
         Box(modifier = Modifier
-            .height(48.dp)
+            .height(138.dp)
             .fillMaxWidth()
             .offset(x = 0.dp, y = (-24.dp)),
             contentAlignment = Alignment.Center
         ){
-            AsyncImage(
-                model = "https://www.youtube.com/watch?v=5D1wFxMr6Sk",
-                contentDescription = null,
-                Modifier
-                    .fillMaxWidth()
-                    .align(Alignment.Center),
-                placeholder = painterResource(id = R.drawable.loading)
-            )
         }
     }
 }
